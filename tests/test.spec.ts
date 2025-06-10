@@ -1,7 +1,6 @@
 import { test } from "@playwright/test";
 import { login } from "../util/login";
 
-const run = parseInt(process.env.RUN_NUMBER || "1");
 const title = process.env.TITLE!;
 
 const username = process.env.USERNAME || "testuser";

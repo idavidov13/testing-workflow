@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
 
 env:
+  TITLE: ${{ secrets.TITLE }}
   US_USERNAME: ${{ secrets.US_USERNAME }}
   US_PASSWORD: ${{ secrets.US_PASSWORD }}
   UK_USERNAME: ${{ secrets.UK_USERNAME }}
@@ -39,8 +40,9 @@ jobs:
     name: Setup and Test
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    outputs:
-      smoke_outcome: ${{ steps.smoke.outcome }}
+    strategy:
+      matrix:
+        locale: [1, 2, 3, 4, 5, 6, 7, 8]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

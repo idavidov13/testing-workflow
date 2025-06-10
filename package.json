@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "1": "cross-env RUN_NUMBER=1 USERNAME=$US_USERNAME PASSWORD=$US_PASSWORD npx playwright test tests/hacker-news.spec.ts --project='US-English' --headed",
-    "2": "cross-env RUN_NUMBER=2 USERNAME=$UK_USERNAME PASSWORD=$UK_PASSWORD npx playwright test tests/hacker-news.spec.ts --project='UK-English' --headed",
-    "3": "cross-env RUN_NUMBER=3 USERNAME=$DE_USERNAME PASSWORD=$DE_PASSWORD npx playwright test tests/hacker-news.spec.ts --project='Germany' --headed",
-    "4": "cross-env RUN_NUMBER=4 USERNAME=$FR_USERNAME PASSWORD=$FR_PASSWORD npx playwright test tests/hacker-news.spec.ts --project='France' --headed",
-    "5": "cross-env RUN_NUMBER=5 USERNAME=$JP_USERNAME PASSWORD=$JP_PASSWORD npx playwright test tests/hacker-news.spec.ts --project='Japan' --headed",
-    "6": "cross-env RUN_NUMBER=6 USERNAME=$AU_USERNAME PASSWORD=$AU_PASSWORD npx playwright test tests/hacker-news.spec.ts --project='Australia' --headed",
-    "7": "cross-env RUN_NUMBER=7 USERNAME=$BR_USERNAME PASSWORD=$BR_PASSWORD npx playwright test tests/hacker-news.spec.ts --project='Brazil' --headed",
-    "8": "cross-env RUN_NUMBER=8 USERNAME=$IN_USERNAME PASSWORD=$IN_PASSWORD npx playwright test tests/hacker-news.spec.ts --project='India' --headed"
+    "1": "cross-env RUN_NUMBER=1 USERNAME=$US_USERNAME PASSWORD=$US_PASSWORD npx playwright test tests/test.spec.ts --project='US-English' --headed",
+    "2": "cross-env RUN_NUMBER=2 USERNAME=$UK_USERNAME PASSWORD=$UK_PASSWORD npx playwright test tests/test.spec.ts --project='UK-English' --headed",
+    "3": "cross-env RUN_NUMBER=3 USERNAME=$DE_USERNAME PASSWORD=$DE_PASSWORD npx playwright test tests/test.spec.ts --project='Germany' --headed",
+    "4": "cross-env RUN_NUMBER=4 USERNAME=$FR_USERNAME PASSWORD=$FR_PASSWORD npx playwright test tests/test.spec.ts --project='France' --headed",
+    "5": "cross-env RUN_NUMBER=5 USERNAME=$JP_USERNAME PASSWORD=$JP_PASSWORD npx playwright test tests/test.spec.ts --project='Japan' --headed",
+    "6": "cross-env RUN_NUMBER=6 USERNAME=$AU_USERNAME PASSWORD=$AU_PASSWORD npx playwright test tests/test.spec.ts --project='Australia' --headed",
+    "7": "cross-env RUN_NUMBER=7 USERNAME=$BR_USERNAME PASSWORD=$BR_PASSWORD npx playwright test tests/test.spec.ts --project='Brazil' --headed",
+    "8": "cross-env RUN_NUMBER=8 USERNAME=$IN_USERNAME PASSWORD=$IN_PASSWORD npx playwright test tests/test.spec.ts --project='India' --headed"
   },
   "keywords": [],
   "author": "",

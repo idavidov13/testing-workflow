@@ -56,4 +56,8 @@ jobs:
 
       - name: Upload Playwright Report for ${{ matrix.locale }}
         if: always()
-        uses: ./.github/actions/playwright-report
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.locale }}
+          path: playwright-report/
+          retention-days: 1

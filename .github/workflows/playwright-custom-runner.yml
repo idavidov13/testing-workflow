@@ -54,8 +54,6 @@ jobs:
         id: test
         run: npm run ${{ matrix.locale }}
 
-      - name: Upload Playwright Report
+      - name: Upload Playwright Report for ${{ matrix.locale }}
         if: always()
         uses: ./.github/actions/playwright-report
-        with:
-          test-step-outcome: ${{ steps.smoke.outcome }}

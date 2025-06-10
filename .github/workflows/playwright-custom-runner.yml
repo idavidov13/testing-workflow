@@ -1,0 +1,59 @@
+name: Playwright Tests on Custom Runner Extended
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  US_USERNAME: ${{ secrets.US_USERNAME }}
+  US_PASSWORD: ${{ secrets.US_PASSWORD }}
+  UK_USERNAME: ${{ secrets.UK_USERNAME }}
+  UK_PASSWORD: ${{ secrets.UK_PASSWORD }}
+  DE_USERNAME: ${{ secrets.DE_USERNAME }}
+  DE_PASSWORD: ${{ secrets.DE_PASSWORD }}
+  FR_USERNAME: ${{ secrets.FR_USERNAME }}
+  FR_PASSWORD: ${{ secrets.FR_PASSWORD }}
+  JP_USERNAME: ${{ secrets.JP_USERNAME }}
+  JP_PASSWORD: ${{ secrets.JP_PASSWORD }}
+  AU_USERNAME: ${{ secrets.AU_USERNAME }}
+  AU_PASSWORD: ${{ secrets.AU_PASSWORD }}
+  BR_USERNAME: ${{ secrets.BR_USERNAME }}
+  BR_PASSWORD: ${{ secrets.BR_PASSWORD }}
+  IN_USERNAME: ${{ secrets.IN_USERNAME }}
+  IN_PASSWORD: ${{ secrets.IN_PASSWORD }}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  setup-and-smoke-test:
+    name: Setup and Test
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    outputs:
+      smoke_outcome: ${{ steps.smoke.outcome }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Playwright Setup on Runner
+        uses: ./.github/actions/playwright-setup
+
+      - name: Run tests for ${{ matrix.locale }}
+        id: test
+        run: npm run ${{ matrix.locale }}
+
+      - name: Upload Playwright Report
+        if: always()
+        uses: ./.github/actions/playwright-report
+        with:
+          test-step-outcome: ${{ steps.smoke.outcome }}
